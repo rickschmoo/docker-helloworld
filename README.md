@@ -25,4 +25,14 @@ Service
 - `docker swarm leave --force`
 
 Swarm
-- SWARM is a group of machines (nodes) that are running Docker and joined into a cluster
+- SWARM is a group of machines (nodes) that are running Docker and joined into a CLUSTER. Multi-container, multi-machine applications are made possible by joining multiple machines into a “Dockerized” cluster called a SWARM
+- swarm is made up of multiple nodes, which can be either physical or virtual machines
+- commands executed on a cluster by a SWARM MANAGER
+- other machines = WORKERS
+- Create VMs: `docker-machine create --driver virtualbox myvm1`
+- `docker-machine ls`
+- `docker-machine ssh myvm1 "docker swarm init --advertise-addr <myvm1 ip>"`
+- `docker-machine ssh myvm2 "docker swarm join --token <token> <ip>:2377"`
+- `docker-machine ssh myvm1 "docker node ls"`
+- Setup direct shell: `docker-machine env myvm1`
+- `docker stack rm getstartedlab`
